@@ -1,0 +1,33 @@
+{
+   "name":"Tutorial 1",
+   "width":1,
+   "height":3,
+   "start": {
+       "x":1,
+       "y":1
+    },
+   "areas":[
+    {
+        "border":"houseuponly",
+        "x":1,
+        "y":1
+    },
+    {
+        "border":"houseupdownonly",
+        "x":1,
+        "y":2
+    },
+    {
+        "border":"houseupdownonly",
+        "grid": [
+            {
+                "x":2,
+                "y":2,
+                "type":0
+            }
+        ],
+        "x":1,
+        "y":3
+    }
+   ]
+}

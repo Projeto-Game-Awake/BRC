@@ -1,0 +1,28 @@
+{
+   "name":"Tutorial 3",
+   "width":2,
+   "height":2,
+   "start": {
+       "x":2,
+       "y":2
+    },
+   "areas":[
+    {
+        "border":"housedownonly",
+        "x":2,
+        "y":2
+    },
+    {
+        "border":"houseuponly",
+        "grid": [
+            {
+                "x":2,
+                "y":2,
+                "type":1
+            }
+        ],
+        "x":2,
+        "y":1
+    }
+   ]
+}

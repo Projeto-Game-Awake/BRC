@@ -1,0 +1,28 @@
+[
+    {
+        "shadow":"Orgulho",
+        "light":"Humildade",
+        "hp":2,
+        "attack":2,
+        "magic":1,
+        "defence":1,
+        "spirit":1,
+        "speed":4,
+        "hit":100,
+        "will":100,
+        "critical":50
+    },
+    {
+        "shadow":"Personalismo",
+        "light":"Companheirismo",
+        "hp":10,
+        "attack":4,
+        "magic":1,
+        "defence":4,
+        "spirit":2,
+        "speed":4,
+        "hit":100,
+        "will":100,
+        "critical":50
+    }
+]

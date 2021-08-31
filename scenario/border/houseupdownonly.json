@@ -1,0 +1,29 @@
+[
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+
+    {"sheet":"casa","sprite":1},
+    {"sheet":"casa","sprite":1},
+    {"sheet":"casa","sprite":1},
+    {"sheet":"casa","sprite":1},
+    {"sheet":"casa","sprite":1},
+    {"sheet":"casa","sprite":-1},
+
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+    {"sheet":"casa","sprite":-1},
+
+    {"sheet":"casa","sprite":3},
+    {"sheet":"casa","sprite":3},
+    {"sheet":"casa","sprite":3},
+    {"sheet":"casa","sprite":3},
+    {"sheet":"casa","sprite":3},
+    {"sheet":"casa","sprite":-1}
+]
