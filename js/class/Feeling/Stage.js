@@ -1,4 +1,4 @@
-class Feeling extends Phaser.GameObjects.Container {
+class Stage extends Feeling {
 
     static StatsColor = 
     {
@@ -13,35 +13,24 @@ class Feeling extends Phaser.GameObjects.Container {
         critical:0x4b0082
     }
 
-    constructor(scene, player, x, y, type, skip, level, scale=1) {
-        let stats = scene.cache.json.get("feeling")[type];
-        let side = player instanceof EnemyPlayer ? 1 : 0;                
-        let name = side == 1 ? stats.shadow : stats.light;        
-        let sprite = scene.add.sprite(0,0,"feeling"+scale,type+skip);
-        let label = scene.add.text(0,-20*scale,name,{
-            fontSize: 10,
-            fontFamily: 'Courier New',
-            align: "center",
-            backgroundColor:"#000",
-            color:'#FFFFFF',
-            wordWrap: { width: 780, useAdvancedWrap: true }
-          });
-        label.setOrigin(0.5);
-
-        super(scene,x,y,[sprite,label]);
-
-        this.scene = scene;
-        this.player = player;
-        this.level = level;
-        this.type = type;
-        this.pos = -1;
-        this.actions = [];
-        this.specials = [];
-        this.scale = scale;
-
-        this.stats = stats;
-        this.reset();
-        scene.add.existing(this);
+    constructor(scene, player, x, y, type, skip, level, scale=1, unlocked,sceneName) {
+        super(scene, player, x, y, type, skip, level, scale);
+        let startX = -30;
+        for(let i=0;i<unlocked;i++) {
+            let star = scene.add.sprite(startX,40*scale,"estrelas");
+            this.add(star);
+            startX += 10;
+        }
+        for(let i=unlocked;i<7;i++) {
+            let star = scene.add.sprite(startX,40*scale,"estrelas",1);
+            this.add(star);
+            startX += 10;
+        }
+        this.setClick(() => {
+            scene.scene.start('explore',{
+                sceneName: sceneName
+            });
+        });
     }
     reset() {
         for(let i=0;i<this.specials.length;i++) {
@@ -77,7 +66,7 @@ class Feeling extends Phaser.GameObjects.Container {
     setClick(callback) {
         this.setSize(64, 64);
         this.setInteractive(
-            new Phaser.Geom.Rectangle(0, 0, 64, 64),
+            new Phaser.Geom.Rectangle(0, 0, 66, 120),
             Phaser.Geom.Rectangle.Contains
         );
         this.on("pointerdown", callback,this);

@@ -7,7 +7,7 @@ class Game extends Phaser.Scene
 
     preload ()
     {
-        
+        this.load.json("start", "scenario/start.json");
     }
 
     create ()
@@ -35,24 +35,33 @@ class Game extends Phaser.Scene
 
         
         this.input.on('pointerdown', function (pointer) {
-            this.scene.start('selectPhase',{sceneName:"tutorial1"});
+            let scenario = this.cache.json.get("start");
+            if(scenario) {
+                let dm = this.plugins.install('myPluginRef1', DialogMessagePlugin, true);
+                dm.show(this, scenario, () => {               
+                    this.scene.start('selectPhase');
+                });
+            } else {         
+                this.scene.start('selectPhase');
+            }
         },this);
 
     }
 }
 
 const config = {
-    type: Phaser.AUTO,
+    type: Phaser.CANVAS,
     backgroundColor: '#125555',
     scale: {
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+        //autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 800,
         height: 600
     },
     dom: {
         createContainer: true
     },
-    scene: [Game, SelectPhase, Setup, Explore, Battle]
+    canvas: document.getElementById("canvasGame"),
+    scene: [Game, SelectPhase, SelectFeelingPhase, Setup, Explore, Battle]
 };
 
 const options = {
